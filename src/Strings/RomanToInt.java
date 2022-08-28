@@ -9,13 +9,11 @@ public class RomanToInt {
 
     public int romanToInt(String s) {
         int sum = 0;
-        if (s.length() == 0) return 0;
+        if (s.length()==0) return 0;
         int last = map.get(s.charAt(0));
         for (char ch : s.toCharArray()) {
-            if (map.get(ch) <= last) {
-                sum += map.get(ch);
-            } else {
-                sum += map.get(ch);
+            sum += map.get(ch);
+            if (map.get(ch) > last) {
                 sum -= 2 * last;
             }
             last = map.get(ch);
