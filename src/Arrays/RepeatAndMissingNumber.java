@@ -4,7 +4,7 @@ public class RepeatAndMissingNumber {
 
     public static void main(String[] args) {
         var abc = new RepeatAndMissingNumber();
-        int[] ab = abc.repeatedNumber(new int[]{3, 1, 2, 5, 3});
+        int[] ab = abc.findErrorNums(new int[]{3, 1, 2, 5, 3});
         System.out.println(ab[0]);
         System.out.println(ab[1]);
     }
@@ -25,5 +25,23 @@ public class RepeatAndMissingNumber {
         int a = (int) ((aPlusB + aMinusB) / 2);
         int b = (int) (aPlusB - a);
         return new int[]{a, b};
+    }
+
+    public int[] findErrorNums(int[] nums) {
+        int[] ans = new int[2];
+        for (int num : nums) {
+            if (nums[Math.abs(num) - 1] < 0) {
+                ans[0] = Math.abs(num);
+            } else {
+                nums[Math.abs(num) - 1] *= -1;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                ans[1] = i + 1;
+                break;
+            }
+        }
+        return ans;
     }
 }
