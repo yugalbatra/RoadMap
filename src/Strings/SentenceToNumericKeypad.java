@@ -11,7 +11,7 @@ public class SentenceToNumericKeypad {
     public static String getConversion(char ch) {
         if (ch == ' ') return "0";
         String conversion = "";
-        for (int i = 0; i < numpad.length; i++) {
+        for (int i = 1; i < numpad.length; i++) {
             if (numpad[i].contains(ch + "")) {
                 for (int j=0;j<numpad[i].length();j++){
                     conversion += i+1;
