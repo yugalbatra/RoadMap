@@ -1,6 +1,6 @@
 package Arrays;
 
-public class kthSmallestElement {
+public class KthSmallestElement {
 
     public static void main(String[] args) {
         System.out.println(kthSmallest(new int[]{73, 188, 894, 915, 940, 616, 900, 548}, 0, 7, 7));
