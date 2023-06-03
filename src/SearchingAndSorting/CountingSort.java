@@ -18,6 +18,6 @@ public class CountingSort {
             last = count[i];
         }
         Arrays.sort(arr);
-
+        return arr;
     }
 }

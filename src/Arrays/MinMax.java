@@ -12,12 +12,12 @@ class Pair {
 public class MinMax {
     public static Pair minMax(int[] arr) {
         Pair minMax = new Pair();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > minMax.max) {
-                minMax.max = arr[i];
+        for (int i : arr) {
+            if (i > minMax.max) {
+                minMax.max = i;
             }
-            if (arr[i] < minMax.min) {
-                minMax.min = arr[i];
+            if (i < minMax.min) {
+                minMax.min = i;
             }
         }
         return minMax;
