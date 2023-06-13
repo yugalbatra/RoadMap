@@ -1,7 +1,5 @@
 package Arrays;
 
-import java.util.Arrays;
-
 public class NextPermutations {
 
     public static void reverse(int[] arr, int k) {
