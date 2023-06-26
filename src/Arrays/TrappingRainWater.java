@@ -24,4 +24,24 @@ public class TrappingRainWater {
         }
         return waterTrapped;
     }
+
+    public static long trappingWater(int[] height, int n) {
+        long waterTrapped = 0;
+        int[] maxFromLeft = new int[height.length], maxFromRight = new int[height.length];
+        maxFromLeft[0] = height[0];
+        maxFromRight[height.length - 1] = height[height.length - 1];
+        for (int i = 1; i < height.length; i++) {
+            maxFromLeft[i] = Math.max(maxFromLeft[i - 1], height[i]);
+            maxFromRight[height.length - i - 1] = Math.max(maxFromRight[height.length - i], height[height.length - i - 1]);
+        }
+        for (int i =0;i<height.length;i++) {
+            int currentWater = Math.min(maxFromLeft[i],maxFromRight[i]) - height[i];
+            if (currentWater>0) waterTrapped+=currentWater;
+        }
+        return waterTrapped;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(trappingWater(new int[]{7,4,0,10},4));
+    }
 }
